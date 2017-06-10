@@ -1,0 +1,15 @@
+{
+  "name": "climateControlOn",
+  "version": "1.0.0",
+  "description": "A Node.js Azure function for the Nissan Leaf \"Carwings\" API",
+  "main": "index.js",
+  "author": "Sean Ferguson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirfergy/carwings-functions.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "carwings2": "github:sirfergy/carwings2"
+  }
+}
