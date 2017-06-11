@@ -1,5 +1,6 @@
 "use strict";
 var carwings = require("carwings2");
+var https = require("https");
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -9,21 +10,28 @@ module.exports = function (context, req) {
         client.login(req.body.username, req.body.password, (err, vehicle) => {
             if (err) {
                 context.log(err);
-            }
-            else {
+                if (process.env["ifttt_ccerr_url"]) {
+                    https.get(process.env["ifttt_ccerr_url"]);
+                }
+            } else {
                 context.log("Requesting HVAC off");
 
                 client.requestHvacOff(vehicle.vin, (statusErr, statusResponse) => {
                     if (statusErr) {
                         context.log(statusErr);
-                    }
-                    else {
+                        if (process.env["ifttt_ccerr_url"]) {
+                            https.get(process.env["ifttt_ccerr_url"]);
+                        }
+                    } else {
                         context.log(statusResponse);
+                        if (process.env["ifttt_ccoff_url"]) {
+                            https.get(process.env["ifttt_ccoff_url"]);
+                        }
                     }
                 });
             }
         });
     }
-    
+
     context.done(null, {});
 };
