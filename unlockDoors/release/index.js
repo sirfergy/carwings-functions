@@ -27,8 +27,11 @@ function index(context, req) {
             if (process.env["ifttt_unlock_url"]) {
                 https.get(process.env["ifttt_unlock_url"]);
             }
+            return context.done(null, {});
         }
-        context.done(null, {});
+        else {
+            return context.done(null, {});
+        }
     });
 }
 exports.index = index;

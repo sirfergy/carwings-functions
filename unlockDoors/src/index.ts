@@ -19,7 +19,8 @@ export async function index(context, req) {
             https.get(process.env["ifttt_unlock_url"]);
         }
 
+        return context.done(null, {});
+    } else {
+        return context.done(null, {});
     }
-
-    context.done(null, {});
 };
