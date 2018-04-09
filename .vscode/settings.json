@@ -1,0 +1,16 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/function.json"
+            ],
+            "url": "http://json.schemastore.org/function"
+        },
+        {
+            "fileMatch": [
+                "/host.json"
+            ],
+            "url": "http://json.schemastore.org/host"
+        }
+    ]
+}
