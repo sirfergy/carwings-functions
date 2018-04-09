@@ -13,9 +13,9 @@ module.exports = function (context, req) {
             }
         };
         const { vin, username, password, authorizationKey } = req.body;
-        const client = new carwings.Client(vin);
-        client.login(username, password).then(() => {
-            return client.unlockDoors(authorizationKey);
+        const service = new carwings.Service(vin);
+        service.login(username, password).then(() => {
+            return service.unlockDoors(authorizationKey);
         }, errorHandler).then(() => {
             if (process.env["ifttt_unlock_url"]) {
                 https.get(process.env["ifttt_unlock_url"]);
