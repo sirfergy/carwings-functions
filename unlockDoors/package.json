@@ -15,5 +15,8 @@
   },
   "engines": {
     "node": "8.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.2"
   }
 }
