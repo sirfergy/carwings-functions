@@ -27,10 +27,14 @@ function index(context, req) {
             if (process.env["ifttt_unlock_url"]) {
                 https.get(process.env["ifttt_unlock_url"]);
             }
-            return context.done(null, {});
+            return {
+                status: 200
+            };
         }
         else {
-            return context.done(null, {});
+            return {
+                status: 400
+            };
         }
     });
 }
