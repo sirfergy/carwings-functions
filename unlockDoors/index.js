@@ -3,7 +3,7 @@ var carwings = require("carwings3");
 var https = require("https");
 
 module.exports = function (context, req) {
-    context.log('Unlock request');
+    context.log('Start unlock request');
 
     if (req.body.vin && req.body.username && req.body.password && req.body.authorizationKey) {
         const errorHandler = (error) => {
