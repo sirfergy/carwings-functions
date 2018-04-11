@@ -12,20 +12,20 @@ const carwings3_1 = require("carwings3");
 const https = require("https");
 function index(context, req) {
     return __awaiter(this, void 0, void 0, function* () {
-        context.log("Start unlock request");
-        if (req.body.vin && req.body.username && req.body.password && req.body.authorizationKey) {
+        context.log("Start HVAC off request");
+        if (req.body.vin && req.body.username && req.body.password) {
             const errorHandler = (error) => {
                 context.log(error);
-                if (process.env["ifttt_unlockerr_url"]) {
-                    https.get(process.env["ifttt_unlockerr_url"]);
+                if (process.env["ifttt_ccerr_url"]) {
+                    https.get(process.env["ifttt_ccerr_url"]);
                 }
             };
-            const { vin, username, password, authorizationKey } = req.body;
+            const { vin, username, password } = req.body;
             const service = new carwings3_1.Service(vin);
             yield service.login(username, password);
-            yield service.unlockDoors(authorizationKey);
-            if (process.env["ifttt_unlock_url"]) {
-                https.get(process.env["ifttt_unlock_url"]);
+            yield service.deactivateHvac();
+            if (process.env["ifttt_ccoff_url"]) {
+                https.get(process.env["ifttt_ccoff_url"]);
             }
             return {
                 status: 200

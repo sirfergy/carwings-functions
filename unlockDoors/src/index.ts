@@ -2,7 +2,7 @@ import { Service } from "carwings3";
 import * as https from "https";
 
 export async function index(context, req) {
-    context.log('Start unlock request');
+    context.log("Start unlock request");
 
     if (req.body.vin && req.body.username && req.body.password && req.body.authorizationKey) {
         const errorHandler = (error) => {
@@ -27,4 +27,4 @@ export async function index(context, req) {
             status: 400
         }
     }
-};
+}

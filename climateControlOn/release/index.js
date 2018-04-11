@@ -12,7 +12,7 @@ const carwings3_1 = require("carwings3");
 const https = require("https");
 function index(context, req) {
     return __awaiter(this, void 0, void 0, function* () {
-        context.log('Start HVAC on request');
+        context.log("Start HVAC on request");
         if (req.body.vin && req.body.username && req.body.password) {
             const errorHandler = (error) => {
                 context.log(error);
@@ -39,5 +39,4 @@ function index(context, req) {
     });
 }
 exports.index = index;
-;
 //# sourceMappingURL=index.js.map
