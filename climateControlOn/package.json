@@ -11,12 +11,14 @@
   "license": "MIT",
   "dependencies": {
     "carwings3": "github:sirfergy/carwings3",
-    "https": "^1.0.0"
+    "https": "~1.0.0",
+    "request": "~2.85.0",
+    "request-promise-native": "~1.0.5"
   },
   "engines": {
     "node": "8.9.4"
   },
   "devDependencies": {
-    "@types/node": "^9.6.2"
+    "@types/node": "~9.6.2"
   }
 }
