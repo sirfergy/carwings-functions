@@ -14,6 +14,7 @@ function index(context, req) {
     return __awaiter(this, void 0, void 0, function* () {
         context.log("Start HVAC on request");
         if (req.body.vin && req.body.username && req.body.password) {
+            context.log("Got all the params");
             const errorHandler = (error) => {
                 context.log(error);
                 if (process.env["ifttt_ccerr_url"]) {
@@ -32,6 +33,7 @@ function index(context, req) {
             };
         }
         else {
+            context.log("Insufficient params " + JSON.stringify(req.body));
             return {
                 status: 400
             };

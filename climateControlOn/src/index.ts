@@ -5,6 +5,7 @@ export async function index(context, req) {
     context.log("Start HVAC on request");
 
     if (req.body.vin && req.body.username && req.body.password) {
+        context.log("Got all the params");
         const errorHandler = (error) => {
             context.log(error);
             if (process.env["ifttt_ccerr_url"]) {
@@ -23,6 +24,7 @@ export async function index(context, req) {
             status: 200
         };
     } else {
+        context.log("Insufficient params " + JSON.stringify(req.body));
         return {
             status: 400
         }
