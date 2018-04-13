@@ -1,0 +1,22 @@
+{
+  "name": "lockDoors",
+  "version": "1.0.0",
+  "description": "A Node.js Azure function for the Nissan Leaf \"Carwings\" API",
+  "main": "index.js",
+  "author": "Sean Ferguson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirfergy/carwings-functions.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "carwings3": "github:sirfergy/carwings3",
+    "https": "^1.0.0"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.2"
+  }
+}
